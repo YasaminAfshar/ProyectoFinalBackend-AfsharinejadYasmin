@@ -5,26 +5,56 @@
 
 - ### Para clonar el repositorio realizar el siguiente comando:
 ```
-git clone https://github.com/YasaminAfshar/ProyectoFinalReactJS-AfsharinejadYasmin.git
+git clone https://github.com/YasaminAfshar/ProyectoFinalBackend-AfsharinejadYasmin.git
 ```
 
-- ### Para inicializar el proyecto se debe escribir en la terminal el siguiente comando:
+- ### Para inicializar el proyecto con NODE se debe escribir en la terminal el siguiente comando:
 `$ npm start`
 
-## Descripción del proyecto
+- ### Para inicializar el proyecto con NODEMON se debe escribir en la terminal el siguiente comando:
+`$ npm run dev`
 
-Se ha realizado un Ecommerce como tienda online llamado "Mundo Lana" donde se simula que se venden productos de tejido a crochet. En la página se visualiza las siugientes partes:
-
-- Un NAVBAR en donde se encuentra el logo, la categoría de los productos que se ofrecen en la tienda y el ícono del carrito el cual irá indicando la cantidad de productos que se van agregando a lo largo de la compra y en donde también se podrá finalizar con el pago. 
-- Un CATÁLOGO de productos en el cual cada producto tiene indicado el nombre del producto, el precio y un botón que permite direccionarte a otra ventana con el detalle del producto en si.
-- La ventada de DETALLE del producto te indica nombre, precio, podrás ir sumando o restando la cantidad del producto que deseas comprar, una descripción de la misma y un botón que permitirá agregar el producto al carrito.
-- En el CARRITO se visualiza los productos agregados con sus nombres, cantidad del item agregado y el precio total de la compra. Si se desea continuar con el pago, se deberá rellenar un formulario con los datos del cliente simulando que realiza el pago y al finalizar recibirá el número de orden de su compra.
+- ### Para poder visualizar la documentación API acceder al siguiente link:
+```
+[DOCUMENTACIÓN API](http://localhost:8080/docs/)
+```
 
 ## Dependencias utilizadas para realizar el proyecto
 
-- [Material UI](https://mui.com/): se utilizó como base para el armado estructural de la página junto a su librería de íconos.
-- [Google Fonts](https://fonts.google.com/): se utilizó para obtener todas las fuentes tipográficas que se han implementado en el proyecto. 
-- [Firebase](https://firebase.google.com/?hl=es): en esta plataforma se utilizo la base de datos donde se guardo nuestro catalogo de productos y las ordenes que se fueron generando a base de las compras realizadas.
-- [React Router](https://www.npmjs.com/package/react-router-dom): se utilizó para definir las rutas de navegación dentro de la página.
-- [React Spinners](https://www.npmjs.com/package/react-spinners): se utilizó para aplicar el efecto de carga en la página mientras se espera que se procese y se muestre el catálogo de productos. 
-- [SweerAlert2](https://sweetalert2.github.io/): se utilizó esta librería para aplicar alertas en la página.
+- [Express](https://www.npmjs.com/package/express)
+- [Express Handlebars](https://www.npmjs.com/package/express-handlebars)
+- [Express Session](https://www.npmjs.com/package/express-session)
+- [MongoDB](https://www.mongodb.com/es)
+- [Mongoose](https://www.npmjs.com/package/mongoose)
+- [Connect Mongo](https://www.npmjs.com/package/connect-mongo)
+- [Mongoose Paginate V2](https://www.npmjs.com/package/mongoose-paginate-v2)
+- [Passport](https://www.npmjs.com/package/passport)
+- [Passport Local](https://www.npmjs.com/package/passport-local)
+- [Passport Github2](https://www.passportjs.org/packages/passport-github2/)
+- [Nodemailer](https://www.npmjs.com/package/nodemailer)
+- [Socket Io](https://www.npmjs.com/package/socket.io)
+- [Joi](https://www.npmjs.com/package/joi)
+- [Dotenv](https://www.npmjs.com/package/dotenv)
+- [Cookie Parser](https://www.npmjs.com/package/cookie-parser)
+- [Bcrypt](https://www.npmjs.com/package/bcrypt)
+- [Faker js](https://www.npmjs.com/package/@faker-js/faker)
+- [Swagger jsdoc](https://www.npmjs.com/package/swagger-jsdoc)
+- [Swagger ui express](https://www.npmjs.com/package/swagger-ui-express)
+- [Winston](https://www.npmjs.com/package/winston)
+- [Chai](https://www.npmjs.com/package/chai)
+- [Mocha](https://www.npmjs.com/package/mocha)
+
+## Datos para tener en cuenta a la hora de probar el funcionamiento:
+
+- El email y contraseña del Administrador es: 
+
+```javascript
+{
+  "email": "adminCoder@coder.com",
+  "password": "adminCoder123"
+}
+```
+
+### Acceder al link donde se subió (deploy) el proyecto en [fl0](https://app.fl0.com/):
+
+TIENDA ONLINE MUNDO LANA: [MUNDO LANA](https://mundo-lana.vercel.app/category/kit)

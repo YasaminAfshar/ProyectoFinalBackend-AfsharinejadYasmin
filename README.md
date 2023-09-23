@@ -58,8 +58,9 @@ git clone https://github.com/YasaminAfshar/ProyectoFinalBackend-AfsharinejadYasm
 
 Para hacer funcionar el proyecto, necesitas agregar un archivo .env donde agregues las siguientes variables de entornos con tus propios datos:
 
+
 | Parameter                 | Type     | Description                                                                     |
-| :------------------------ | :------- | :------------------------------------------------------------------------------ |
+| :-----------------------: | :------: | :-----------------------------------------------------------------------------: |
 | `PORT`                    | `number` | **Required**. Puerto de conexión                                                |
 | `MONGO_ATLAS_URL`         | `string` | **Required**. Url de conexión al mongo atlas tanto para el DEV como PRDO        |
 | `MONGO_ATLAS_TEST`        | `string` | **Required**. Url de conexión al mongo atlas para realizar los TESTING          |
@@ -68,6 +69,7 @@ Para hacer funcionar el proyecto, necesitas agregar un archivo .env donde agregu
 | `ENV`                     | `string` | **Required**. Se debe agregar DEV (en desarrollo) o PROD (en producción)        |
 | `EMAIL`                   | `string` | **Required**. Se obtiene al hacer registro para utilizar nodemailer gmail       |
 | `PASSWORD`                | `string` | **Required**. Se obtiene al hacer registro para utilizar nodemailer gmail       |
+
 
 ### Acceder al link donde se realizó el deploy del proyecto en [fl0](https://app.fl0.com/):
 

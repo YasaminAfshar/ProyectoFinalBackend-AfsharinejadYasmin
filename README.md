@@ -15,9 +15,8 @@ git clone https://github.com/YasaminAfshar/ProyectoFinalBackend-AfsharinejadYasm
 `$ npm run dev`
 
 - ### Para poder visualizar la documentación API acceder al siguiente link:
-```
 [DOCUMENTACIÓN API](http://localhost:8080/docs/)
-```
+
 
 ## Dependencias utilizadas para realizar el proyecto
 
@@ -55,6 +54,6 @@ git clone https://github.com/YasaminAfshar/ProyectoFinalBackend-AfsharinejadYasm
 }
 ```
 
-### Acceder al link donde se subió (deploy) el proyecto en [fl0](https://app.fl0.com/):
+### Acceder al link donde se realizó el deploy del proyecto en [fl0](https://app.fl0.com/):
 
-TIENDA ONLINE MUNDO LANA: [MUNDO LANA](https://mundo-lana.vercel.app/category/kit)
+Link de la página: [TIENDA ONLINE MUNDO LANA](https://mundo-lana.vercel.app/category/kit)

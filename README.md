@@ -54,6 +54,18 @@ git clone https://github.com/YasaminAfshar/ProyectoFinalBackend-AfsharinejadYasm
 }
 ```
 
+### Variables de entorno
+
+Para hacer funcionar el proyecto, necesitas agregar un archivo .env donde agregues las siguientes variables de entornos con tus propios datos:
+
+| Parameter | Type     | Description                      |
+| :-------- | :------- | :------------------------------- |
+| `PORT`    | `number` | **Required**. Puerto de conexión |
+| :-------- | :------- | :------------------------------- |
+| `MONGO_ATLAS_URL`    | `string` | **Required**. Url de conexión al mongo atlas tanto para el DEV como PRDO |
+| :-------- | :------- | :------------------------------- |
+| `MONGO_ATLAS_TEST`    | `string` | **Required**. Url de conexión al mongo atlas para realizar los TESTING |
+
 ### Acceder al link donde se realizó el deploy del proyecto en [fl0](https://app.fl0.com/):
 
 Link de la página: [TIENDA ONLINE MUNDO LANA](https://mundo-lana.vercel.app/category/kit)

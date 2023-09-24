@@ -53,6 +53,7 @@ git clone https://github.com/YasaminAfshar/ProyectoFinalBackend-AfsharinejadYasm
   "password": "adminCoder123"
 }
 ```
+-Se recomienda probar todo con el email de uno propio para que pueda recibir los emails que se envian.
 
 ### Variables de entorno
 

@@ -45,7 +45,7 @@ git clone https://github.com/YasaminAfshar/ProyectoFinalBackend-AfsharinejadYasm
 
 ## Datos para tener en cuenta a la hora de probar el funcionamiento:
 
-- El email y contraseña del Administrador es: 
+- El email y contraseña del Administrador (ya se encuentra creado) es: 
 
 ```javascript
 {

@@ -132,8 +132,8 @@ export default class UsersDao {
         await deleteUsersMail(user);
         logger.info(`La cuenta de ${user.firstName} ha sido eliminada por inactividad.`);
       }
-      logger.info(`Se eliminaron ${inactiveUsers.length} usuarios inactivos con éxito!`);
-      return (`Se eliminaron ${inactiveUsers.length} usuarios inactivos con éxito!`);
+      logger.info(`Se eliminaron ${inactiveUsers.length} usuarios inactivos y sus carts creadas con éxito!`);
+      return (`Se eliminaron ${inactiveUsers.length} usuarios inactivos y sus carts creadas con éxito!`);
     } catch (error) {
       logger.error(error);
       throw new Error(error.message);

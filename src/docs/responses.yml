@@ -1,0 +1,502 @@
+components:
+  schema:
+    Products:
+      ProductResponse:
+        type: object
+        properties:
+          _id:
+            type: string
+            description: Id del producto
+            example: 6466e9cb8496cfaffec4de33
+          title:
+            type: string
+            description: Título o nombre del producto
+            example: Pack 6 unidades de Agujas Laneras acero inoxidable
+          description:
+            type: string
+            description: Descripción del producto
+            example: Pack de 6 Agujas Laneras SURTIDAS CBX de acero de Excelente Calidad
+          price:
+            type: number
+            description: Precio del producto por unidad
+            example: 340
+          code:
+            type: string
+            description: Código identificatorio del producto
+            example: A11BCD
+          category:
+            type: string
+            description: Categoría del producto
+            example: kit
+          stock:
+            type: number
+            description: Cantidad de stock disponible del producto
+            example: 15
+          thumbnails:
+            type: string
+            description: Lista de enlaces o imágenes que pertenecen al producto
+            example: https://res.cloudinary.com/dsrdpgpzy/image/upload/v1676764508/MULTIMEDIA/img/accesorios/agujaslaneras_ymawot.webp
+          status:
+            type: boolean
+            description: Estado del producto
+            example: true
+          owner:
+            type: string
+            description: Email del propietario del producto 
+            example: mariamagdalena@gmail.com
+      GetAllProductsResponse:
+        type: object
+        properties:
+          results:
+            type: array
+            items:
+              type: object
+              properties:
+                _id:
+                  type: string
+                  description: Id del producto
+                title:
+                  type: string
+                  description: Título o nombre del producto
+                description:
+                  type: string
+                  description: Descripción del producto
+                price:
+                  type: number
+                  description: Precio del producto por unidad
+                code:
+                  type: string
+                  description: Código identificatorio del producto
+                category:
+                  type: string
+                  description: Categoría del producto
+                stock:
+                  type: number
+                  description: Cantidad de stock disponible del producto
+                thumbnails:
+                  type: string
+                  description: Lista de enlaces o imágenes que pertenecen al producto
+                status:
+                  type: boolean
+                  description: Estado del producto
+                owner:
+                  type: string
+                  description: Email del propietario del producto 
+        example:
+          results:
+            - _id: 646ebf4b7b0e969296975008
+              title: Lana semifino color AZUL FRANCIA
+              description: Lana 100%  orgánico semifino color AZUL FRANCIA
+              price: 530
+              code: A24TQP
+              category: lanas
+              stock: 25
+              thumbnails: https://res.cloudinary.com/dsrdpgpzy/image/upload/v1676764522/MULTIMEDIA/img/semi-fino/semifino-azulfrancia_v47x1x.webp
+              status: true
+              owner: mariajosefina@gmail.com
+            - _id: 647ytr1de52f66de85e51851
+              title: Regla SKC medidora de ovillo y agujas
+              description: Regla SKC Ideal para medir calibre de lanas hilos y agujas
+              price: 550
+              code: A43YHD
+              category: accesorios
+              stock: 19
+              thumbnails: https://res.cloudinary.com/dsrdpgpzy/image/upload/v1676764509/MULTIMEDIA/img/accesorios/reglaSKC_mv8gi8.webp
+              status: true
+              owner: pabloperew@hotmail.com
+      DeleteProductResponse:
+        type: object
+        properties:
+          message: 
+            type: string
+            description: Mensaje de confirmación
+        example:
+          message: Producto eliminado correctamente de la colección!
+      ErrorGetProductByIdResponse:
+        type: object
+        properties:
+          message:
+            type: string
+            description: Mensaje de error en la búsqueda del producto solicitado
+        example: 
+          message: El producto que está solicitando no se encuentra en la colección, por lo tanto no se puede proceder a realizar lo solicitado!
+    Carts:
+      CartPostResponse:
+        type: object
+        properties:
+          _id:
+            type: string
+            description: ID del carrito creado 
+            example: 648808e8f7da3c0ef878171b
+          product:
+            type: array
+            description: Arreglo de productos que se agregarán al carrito
+            items: []
+      CartGetAllResponse:
+        type: array
+        items:
+          type: object
+          properties:
+            _id:
+              type: string
+              description: ID del carrito creado 
+              example: 648808e8f7da3c0ef878171b
+            product:
+              type: array
+              items: 
+                type: object
+                properties:
+                  quantity:
+                    type: number
+                    description: Se indica la cantidad que se quiere agregar al carrito del producto indicado
+                    example: 2
+                  product:
+                    type: object
+                    properties:
+                      _id:
+                        type: string
+                        description: ID del producto seleccionado
+                        example: 647e83907a86cd5ca715e88d
+                      title:
+                        type: string
+                        description: Título o nombre del producto
+                        example: Set de 22 Agujas de acero inoxidable
+                      description:
+                        type: string
+                        description: Descripción del producto
+                        example: Set de 22 agujas que incluye las medidas de 0.60cm a 6.50cm
+                      price:
+                        type: number
+                        description: Precio del producto por unidad
+                        example: 3020
+                      code:
+                        type: string
+                        description: Código identificatorio del producto
+                        example: A46YHD
+                      category:
+                        type: string
+                        description: Categoría del producto
+                        example: kit
+                      stock:
+                        type: number
+                        description: Cantidad de stock disponible del producto
+                        example: 30
+                      thumbnails:
+                        type: string
+                        description: Lista de enlaces o imágenes que pertenecen al producto
+                        example: https://res.cloudinary.com/dsrdpgpzy/image/upload/v1676764511/MULTIMEDIA/img/accesorios/set22agujas_dbwvl3.webp
+                      status:
+                        type: boolean
+                        description: Estado del producto
+                        example: true
+                      owner:
+                        type: string
+                        description: Email del propietario del producto 
+                        example: pablitogonzalez@gmail.com
+      CartGetByIdResponse:
+        type: object
+        properties:
+          _id:
+            type: string
+            description: ID del carrito creado 
+            example: 648808e8f7da3c0ef878171b
+          product:
+            type: array
+            items: 
+              type: object
+              properties:
+                quantity:
+                  type: number
+                  description: Se indica la cantidad que se quiere agregar al carrito del producto indicado
+                  example: 2
+                product:
+                  type: object
+                  properties:
+                    _id:
+                      type: string
+                      description: ID del producto seleccionado
+                      example: 647e83907a86cd5ca715e88d
+                    title:
+                      type: string
+                      description: Título o nombre del producto
+                      example: Set de 22 Agujas de acero inoxidable
+                    description:
+                      type: string
+                      description: Descripción del producto
+                      example: Set de 22 agujas que incluye las medidas de 0.60cm a 6.50cm
+                    price:
+                      type: number
+                      description: Precio del producto por unidad
+                      example: 3020
+                    code:
+                      type: string
+                      description: Código identificatorio del producto
+                      example: A46YHD
+                    category:
+                      type: string
+                      description: Categoría del producto
+                      example: kit
+                    stock:
+                      type: number
+                      description: Cantidad de stock disponible del producto
+                      example: 30
+                    thumbnails:
+                      type: string
+                      description: Lista de enlaces o imágenes que pertenecen al producto
+                      example: https://res.cloudinary.com/dsrdpgpzy/image/upload/v1676764511/MULTIMEDIA/img/accesorios/set22agujas_dbwvl3.webp
+                    status:
+                      type: boolean
+                      description: Estado del producto
+                      example: true
+                    owner:
+                      type: string
+                      description: Email del propietario del producto 
+                      example: pablitogonzalez@gmail.com
+      ErrorGetCartByIdResponse:
+        type: object
+        properties:
+          message:
+            type: string
+            description: Mensaje de error en la búsqueda del carrito solicitado
+        example: 
+          message: El carrito que está solicitando no se encuentra en la colección, por lo tanto no se puede proceder a realizar lo solicitado!
+      DeleteCartResponse:
+        type: object
+        properties:
+          message: 
+            type: string
+            description: Mensaje de confirmación
+        example:
+          message: Carrito vaciado correctamente de la colección!
+      AddProductToCartResponse:
+        type: object
+        properties:
+          message: 
+            type: string
+            description: Mensaje de confirmación
+        example:
+          message: Se ha agregado el producto seleccionado al carrito con éxito!
+      ErrorBusqueda: 
+        type: object
+        properties:
+          message:
+            type: string
+            description: Mensaje de error en la búsqueda del carrito o producto solicitado
+        example: 
+          message: El carrito o producto que está solicitando no se encuentra en la colección, por lo tanto no se puede proceder a realizar lo solicitado!
+      ChangeQuantityResponse:
+        type: object
+        properties:
+          message: 
+            type: string
+            description: Mensaje de confirmación
+        example:
+          message: Se ha actualizado la cantidad del producto seleccionado que se ha agregado en el carrito con éxito!
+      DeleteProductInCartResponse:
+        type: object
+        properties:
+          message: 
+            type: string
+            description: Mensaje de confirmación
+        example:
+          message: Se ha eliminado el producto seleccionado que has agregado a tu carrito con éxito!
+      FinalizePurchase:
+        type: object
+        properties:
+          _id:
+            type: string
+            description: ID del ticket generado
+            example: 648808e8f7da3c0ef878171b
+          code:
+            type: string
+            description: Código único del ticket que representa la compra del usuario
+            example: Gc8VRA
+          purchaseDateTime:
+            type: date
+            description: Fecha y horario de cuándo se realizo la compra por parte del usuario
+            example: 21/8/2023, 2:12:39 a. m.
+          amount:
+            type: number
+            description: Suma total a pagar por los productos seleccionados y comprados
+            example: 6640
+          purchaser:
+            type: string
+            description: Email del usuario a quien el pertenece este ticket y quien realizó la compra
+            example: pablitogonzalez@gmail.com
+          productsPurchased:
+            type: array
+            items:
+              type: object
+              properties:
+                product:
+                  type: string
+                  description: ID del producto que seleccionó y compró el usuario
+                  example: 647e831e7a86cd5ca715e87b
+                quantity:
+                  type: number
+                  description: Se indica la cantidad que el usuario agregó del mismo producto a su carrito y terminó comprando
+                  example: 4
+                subtotal:
+                  type: number
+                  description: Se indica el valor total del producto comprado teniendo en cuenta la cantidad (valor de producto $1660 * cantidad que son 4)
+                  example: 6640
+    Users:
+      GetAllUsers:
+        type: object
+        properties:
+          results:
+            type: array
+            items:
+              type: object
+              properties:
+                fullName:
+                  type: string
+                  description: Nombre y apellido completo de la persona que se registró
+                email:
+                  type: string
+                  description: Email de la persona que se registró
+                role:
+                  type: string
+                  description: Rol que cumple la persona al haberse registrado ya sea user, premium o admin
+        example:
+          results:
+            - fullName: John Smith
+              email: johnsmith@example.com
+              role: user
+            - fullName: Carlos Perez
+              email: carlos@example.com
+              role: premium
+            - fullName: Sofia Vergara
+              email: sofia@example.com
+              role: user
+      UserRegister:
+        type: object
+        properties:
+          message:
+            type: string
+            description: Mensaje de éxito 
+        example: 
+          message: El usuario se ha registrado correctamente a nuestra base de datos!
+      UserLogin:
+        type: object
+        properties:
+          data:
+            type: object
+            properties:
+              _id:
+                type: string
+                description: ID del usuario
+                example: 648808e8f7da3c0ef878171b
+              firstName:
+                type: string
+                description: Nombre del usuario
+                example: Juan
+              lastName:
+                type: string
+                description: Apellido del usuario
+                example: Perez
+              email:
+                type: string
+                description: Email del usuario
+                example: example@example.com
+              role:
+                type: string
+                description: Rol del usuario ya sea USER, PREMIUM o ADMIN
+                example: user
+              cart:
+                type: string
+                description: ID del carrito que le corresponde y secreo para este usuario especifico
+                example: 650a4714348f67ecaf9235aa
+              lastConnection:
+                type: string
+                description: Fecha y horario de conección del usuario
+                example: 20/9/2023, 9:52:04 p. m.
+      ErrorGetUserById:
+        type: object
+        properties:
+          message:
+            type: string
+            description: Mensaje de error en la búsqueda del usuario solicitado 
+        example: 
+          message: El usuario que esta ingresando y solicitando no se encuentra en nuestra base de datos, verifique si escribió el email correctamente!
+      UserLogout:
+        type: object
+        properties:
+          message:
+            type: string
+            description: Mensaje de éxito 
+        example: 
+          message: El usuario que se ha logueado pudo salir con éxitos!
+      ChangeRole: 
+        type: object
+        properties:
+          message:
+            type: string
+            description: Mensaje de éxito 
+        example: 
+          message: Se ha realizadoel cambio de rol a premium o a user con éxito!
+      DeleteUsers:
+        type: object
+        properties:
+          message:
+            type: string
+            description: Mensaje de éxito 
+        example: 
+          message: Se eliminaron 2 usuarios inactivos con éxito!
+      DeleteUsersFailure:
+        type: object
+        properties:
+          message:
+            type: string
+            description: Mensaje de éxito 
+        example: 
+          message: No se encontraron usuarios inactivos!
+    Errors:
+      ValidationSchemaError:
+        type: object
+        properties:
+          message:
+            type: string
+            description: Mensaje de error en la validación del Schema
+        example:
+          message: El schema de este endpoint no es válido porque faltan campos a completar!
+      NotFound:
+        type: object
+        properties:
+          message:
+            type: string
+            description: Mensaje de error de servidor
+        example:
+          message: No se puede encontrar el objeto/data que se está solicitando!
+      Forbidden:
+        type: object
+        properties:
+          message:
+            type: string
+            description: Mensaje de PROHIBIDO/RESTRICCIÓN del acceso
+        example:
+          message: Tienes prohibido el acceso a este endpoint, no está autorizado para continuar!
+      ServerError:
+        type: object
+        properties:
+          message:
+            type: string
+            description: Mensaje de problema en el SERVIDOR
+        example:
+          message: Lo siento, estamos teniendo problemas en nuestro servidor. Vuelve a intentarlo más tarde!
+      Unauthorized:
+        type: object
+        properties:
+          message:
+            type: string
+            description: Mensaje de AUTORIZACIÓN DENEGADA
+        example:
+          message: No tienes permiso o autorización para acceder a este endpoint, tampoco puede realizar esta acción!
+      BadRequest:
+        type: object
+        properties:
+          message:
+            type: string
+            description: Mensaje de BAD REQUEST
+        example:
+          message: No se puede realizar lo solicitado porque hay un error desde el lado del cliente!

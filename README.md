@@ -8,6 +8,9 @@
 git clone https://github.com/YasaminAfshar/ProyectoFinalBackend-AfsharinejadYasmin.git
 ```
 
+- ### Para instalar todas las dependencias que integran el proyecto se debe escribir en la terminal el siguiente comando:
+`$ npm install`
+
 - ### Para inicializar el proyecto con NODE se debe escribir en la terminal el siguiente comando:
 `$ npm start`
 

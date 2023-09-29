@@ -1,0 +1,45 @@
+{
+  "name": "ecommerce-mundolana",
+  "version": "1.0.0",
+  "description": "Se realiza el armado del proyecto final para el curso de Backend de Coderhouse, donde se realiza un Ecommerce de una tienda online donde se ofrecen productos, el usuario se puede registrar y realizar la compra de los productos que esten activos",
+  "main": "src/app.js",
+  "type": "module",
+  "scripts": {
+    "start": "node .",
+    "dev": "nodemon .",
+    "test:uni": "mocha ./src/test/dao/test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YasaminAfshar/ProyectoFinalBackend-AfsharinejadYasmin.git"
+  },
+  "keywords": [],
+  "author": "Yasmin Afsharinejad",
+  "license": "ISC",
+  "dependencies": {
+    "@faker-js/faker": "^8.0.2",
+    "bcrypt": "^5.1.0",
+    "connect-mongo": "^5.0.0",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-handlebars": "^7.1.0",
+    "express-session": "^1.17.3",
+    "joi": "^17.9.2",
+    "mongodb": "^5.7.0",
+    "mongoose": "^7.4.1",
+    "mongoose-paginate-v2": "^1.7.31",
+    "nodemailer": "^6.9.4",
+    "passport": "^0.6.0",
+    "passport-github2": "^0.1.12",
+    "passport-local": "^1.0.0",
+    "socket.io": "^4.7.1",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.0",
+    "winston": "^3.10.0"
+  },
+  "devDependencies": {
+    "chai": "^4.3.8",
+    "mocha": "^10.2.0"
+  }
+}

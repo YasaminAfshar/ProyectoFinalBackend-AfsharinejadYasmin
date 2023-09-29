@@ -1,0 +1,544 @@
+paths:
+  /products:
+    post:
+      tags:
+      - Products
+      summary: Añadir un nuevo producto a la base de datos
+      requestBody:
+        required: true
+        content: 
+          application/json:
+            schema:
+              $ref: '#/components/parameters/schemas/BodyProducts'
+      responses:
+        200:
+          description: Se ha creado el producto con éxito!
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/Products/ProductResponse'
+        403:
+          description: Error en Autorización 
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/Errors/Forbidden'
+        404:
+          description: Error de validación del schema
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/Errors/ValidationSchemaError'
+        500:
+          description: Error del servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/Errors/ServerError'
+    get:
+      tags:
+      - Products 
+      summary: Recibe y muestra un listado de todos los productos que esten cargados en la base de datos
+      responses:
+        200:
+          description:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/Products/GetAllProductsResponse'
+        400:
+          description: Error en la solicitud
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/Errors/BadRequest'
+        500:
+          description: Error del servidor
+          content:
+            application/json:
+              schema: 
+                $ref: '#/components/schema/Errors/ServerError'
+  /products/{id}:
+    get:
+      tags:
+      - Products
+      summary: Se recibe un producto en particular por medio de ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+          description: ID del producto en búsqueda
+          schema:
+            type: string
+      responses:
+        200:
+          description: Se ha encontrado el producto buscado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/Products/ProductResponse'
+        404:
+          description: Error en la búsqueda
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/Products/ErrorGetProductByIdResponse'
+    put:
+      tags:
+      - Products
+      summary: Se actualiza algunos de los campos del producto por ID
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/parameters/schemas/BodyProducts'
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+          description: Id del producto que se desea obtener y modificar
+      responses:
+        200:
+          description: Se ha realizado los cambios correctamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/Products/ProductResponse'
+        403:
+          description: Error en acceso al endpoint
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/Errors/Forbidden'
+        404:
+          description: Error en la búsqueda
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/Products/ErrorGetProductByIdResponse'
+    delete:
+      tags:
+      - Products
+      summary: Se elimina el producto seleccionado por ID de la base de datos
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+          description: Id del producto que se desea eliminar
+      responses:
+        200:
+          description: Se ha eliminado el producto seleccionado correctamente de la base de datos
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/Products/DeleteProductResponse'
+        403:
+          description: Error en acceso al endpoint
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/Errors/Forbidden'
+        404:
+          description: Error en la búsqueda
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/Products/ErrorGetProductByIdResponse'
+  /carts:
+    post:
+      tags:
+      - Carts
+      summary: Crear un carrito en la base de datos cuando se registra un nuevo usuario
+      responses:
+        200:
+          description: Se ha creado el carrito con éxito!
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/Carts/CartPostResponse'
+        500:
+          description: Error del servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/Errors/ServerError'
+    get:
+      tags:
+      - Carts
+      summary: Listado de carritos creados que estan guardados en la base de datos
+      responses:
+        200:
+          description: Se muestran todos los carritos encontrados en la base de datos
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/Carts/CartGetAllResponse'
+        404:
+          description: Error en la búsqueda
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/Errors/NotFound'
+        500:
+          description: Error del servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/Errors/ServerError'
+  /carts/{cid}:
+    get:
+      tags:
+      - Carts
+      summary: Se recibe un carrito en particular por medio de ID
+      parameters:
+        - name: cid
+          in: path
+          required: true
+          type: string
+          description: ID del carrito en búsqueda
+          schema:
+            type: string
+      responses:
+        200:
+          description: Se ha encontrado el carrito buscado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/Carts/CartGetByIdResponse'
+        404:
+          description: Error en la búsqueda
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/Carts/ErrorGetCartByIdResponse'
+    delete:
+      tags:
+      - Carts
+      summary: Se vacia el carrito seleccionado por ID de la base de datos
+      parameters:
+        - name: cid
+          in: path
+          required: true
+          type: string
+          description: Id del carrito que se desea vaciar
+      responses:
+        200:
+          description: Se ha vaciado el carrito seleccionado correctamente!
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/Carts/DeleteCartResponse'
+        404:
+          description: Error en la búsqueda
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/Carts/ErrorGetCartByIdResponse'
+  /carts/{cid}/product/{pid}:
+    post:
+      tags:
+      - Carts
+      summary: Se agrega un producto al carrito
+      parameters:
+        - name: cid
+          in: path
+          required: true
+          type: string
+          description: Id del carrito 
+        - name: pid
+          in: path
+          required: true
+          type: string
+          description: Id del producto que se desea agregar al carrito
+      responses:
+        200:
+          description: Se ha agregado el producto al carrito seleccionado correctamente!
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/Carts/AddProductToCartResponse'
+        404:
+          description: Error en la búsqueda
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/Carts/ErrorBusqueda'
+    put:
+      tags:
+      - Carts
+      summary: Se modifica la cantidad de producto (especifico) agregado al carrito
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/parameters/schemas/BodyQuantityChange'
+      parameters:
+        - name: cid
+          in: path
+          required: true
+          type: string
+          description: Id del carrito 
+        - name: pid
+          in: path
+          required: true
+          type: string
+          description: Id del producto que se le desea cambiar la cantidad
+      responses:
+        200:
+          description: Se ha modificado la cantidad de producto agregado al carrito seleccionado correctamente!
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/Carts/ChangeQuantityResponse'
+        404:
+          description: Error en la búsqueda
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/Carts/ErrorBusqueda'
+    delete:
+      tags:
+      - Carts
+      summary: Se elimina el producto seleccionado del carrito
+      parameters:
+        - name: cid
+          in: path
+          required: true
+          type: string
+          description: Id del carrito 
+        - name: pid
+          in: path
+          required: true
+          type: string
+          description: Id del producto que se desea eliminar del carrito
+      responses:
+        200:
+          description: Se ha eliminado el producto seleccionado del carrito correctamente!
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/Carts/DeleteProductInCartResponse'
+        404:
+          description: Error en la búsqueda
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/Carts/ErrorBusqueda'
+  /carts/{cid}/purchase:
+    post:
+      tags:
+      - Carts
+      summary: Se realiza la compra y se genera el ticket
+      parameters:
+        - name: cid
+          in: path
+          required: true
+          type: string
+          description: Id del carrito 
+      responses:
+        200:
+          description: Se ha realizado la compra y generación del ticket con éxito!
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/Carts/FinalizePurchase'
+        404:
+          description: Error en la búsqueda
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/Carts/ErrorBusqueda'
+        500:
+          description: Error en el servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/Errors/ServerError'
+  /carts/purchase/{code}:
+    get:
+      tags:
+      - Carts
+      summary: Devuelve el ticket de compra realizada a través del código
+      parameters:
+        - name: code
+          in: path
+          required: true
+          type: string
+          description: Code del ticket emitido
+      responses:
+        200:
+          description: Se devuelve el ticket de compra solicitado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/Carts/FinalizePurchase'
+        404:
+          description: Error en la búsqueda
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/Errors/NotFound'
+        500:
+          description: Error del servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/Errors/ServerError'
+  /users:
+    get:
+      tags:
+      - Users
+      summary: Listado de usuarios registrados que estan guardados en la base de datos
+      responses:
+        200:
+          description: Se muestran todos los usuarios registrados que se encontraron en la base de datos
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/Users/GetAllUsers'
+        404:
+          description: Error en la búsqueda
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/Errors/NotFound'
+        500:
+          description: Error del servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/Errors/ServerError'
+  /users/register:
+    post:
+      tags:
+      - Users
+      summary: Se realiza el registro del usuario!
+      requestBody:
+        required: true
+        content: 
+          application/json:
+            schema:
+              $ref: '#/components/parameters/schemas/BodyRegisterUsers'
+      responses:
+        200:
+          description: Se confirma que el registro del usuario se realizó con éxito!
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/Users/UserRegister'
+        404:
+          description: Error en la solicitud
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/Errors/ValidationSchemaError'
+        500:
+          description: Error del servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/Errors/ServerError'
+  /users/login:
+    post:
+      tags:
+      - Users
+      summary: Se loguea el usuario teniendo en cuenta que realizo registro previamente
+      requestBody:
+        required: true
+        content: 
+          application/json:
+            schema:
+              $ref: '#/components/parameters/schemas/BodyLoginUsers'
+      responses:
+        200:
+          description: Se ha realizado el login con éxito!
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/Users/UserLogin'
+        404:
+          description: Error en la búsqueda
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/Users/ErrorGetUserById'
+        500:
+          description: Error del servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/Errors/ServerError'
+  /users/logout:
+    post:
+      tags:
+      - Users
+      summary: El usuario realiza el logout del servidor
+      responses:
+        200:
+          description: Se ha realizado el logout del servidor con éxito!
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/Users/UserLogout'
+        500:
+          description: Error del servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/Errors/ServerError'
+  /users/premium/{uid}:
+    put:
+      tags:
+      - Users
+      summary: Se realiza el cambio de rol de user a premium y al revés.
+      parameters:
+        - name: uid
+          in: path
+          required: true
+          type: string
+          description: ID del usuario en búsqueda
+          schema:
+            type: string
+      responses:
+        200:
+          description: Se ha realizado el cambio de rol con éxito!
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/Users/ChangeRole'
+        500:
+          description: Error del servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/Errors/ServerError'
+  /users/delete:
+    delete:
+      tags:
+      - Users
+      summary: Se eliminan los usuarios que estan inactivos por más de 48hs (dos dias)
+      responses:
+        200:
+          description: Se eliminan los usuarios que estan inactivos por más de 48hs (dos dias) con éxito!
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/Users/DeleteUsers'
+        401:
+          description: Error de autorización
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/Errors/Unauthorized'
+        404:
+          description: No se encuentran usuarios inactivos para borrar
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/Users/DeleteUsersFailure'
+        

@@ -1,0 +1,10 @@
+PORT
+MONGO_ATLAS_URL= acá van las url para realizar el DEV o PROD de acuerdo a la necesidad
+MONGO_ATLAS_TEST= esta es la url del atlas para realizar los TEST
+CLIENT_ID_GITHUB
+CLIENT_SECRET_GITHUB
+
+ENV = "dev" o "prod"
+
+EMAIL = email propio para utilizar nodemailer
+PASSWORD = password generado por nodemailer gmail

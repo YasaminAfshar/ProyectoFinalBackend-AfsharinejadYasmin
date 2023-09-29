@@ -1,0 +1,80 @@
+
+/*IMPORTACIONES FUENTES DESDE GOOGLE FONTS*/
+@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
+/*font-family: 'Shadows Into Light', cursive;*/
+
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&display=swap');
+/*font-family: 'Rajdhani', sans-serif;*/
+
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+DW+Pica+SC&display=swap');
+/*font-family: 'IM Fell DW Pica SC', serif;*/
+
+
+h1 {
+    text-align: center;
+    margin: 30px auto;
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 3em;
+    font-weight: 800;
+    text-decoration: underline;
+}
+
+
+#chat-container {
+    background-color: #d3438b;
+    box-shadow: 10px 10px 20px -2px rgba(0,0,0,0.75);
+    border:#d3438b 2px solid;
+    margin: auto;
+    width: 60%;
+    height: auto;
+    border-radius: 5%;
+}
+
+#chat-window {
+    border: black 2px solid;
+    box-shadow: 10px 10px 20px -2px rgba(0,0,0,0.7);
+    margin: 20px 50px;
+    background-color: #ee627086;
+}
+
+#output {
+    margin: 15px 50px;
+
+}
+
+#actions {
+    border-top:#e8344686 4px solid ;
+    background-color: #ee516186;
+}
+
+#input-box {
+    display: flex;
+    justify-content: space-around;
+    margin: 0 10px 20px 10px;
+}
+
+#message {
+    width: 600px;
+    height: 30px;
+    background-color: #c9d5e2;
+    border: none;
+    padding: 5px 5px 5px 15px;
+    font-size: 1.2em;
+    font-family: 'IM Fell DW Pica SC', serif;
+    outline: none;
+}
+
+#send {
+     border-radius: 10%;
+     border: none;
+     background-color: #8E44AD;
+     font-family: 'Rajdhani', sans-serif;
+     font-size: 1.3em;
+     font-weight: 800;
+     padding: 5px 15px;
+}
+
+    #send:hover {
+        background-color: #C39BD3;
+        transition:all .8s ease-out;
+    }

@@ -1,0 +1,38 @@
+
+<div style="display: flex; justify-content:space-around; background-color:rgba(137, 43, 226, 0.568); padding:20px">
+    <h3 style="font-size: 2.6em; font-family: 'Shadows Into Light', cursive; font-weight: 900; letter-spacing:3px">¡Bienvenido/a,  {{user.firstName}} {{user.lastName}}!</h3>
+    <h4 style="font-size: 2.6em; font-family: 'Shadows Into Light', cursive; font-weight: 900; letter-spacing:3px">Rol: {{user.role}} </h4>
+    <form action="/api/users/logout" method="POST">
+        <button type="submit" style="font-family: 'Exo 2', sans-serif; font-size: 1.4em; background-color: #6F1D90; color: #fff; padding: 8px 16px; border: none; cursor: pointer;">
+                Logout
+        </button>
+    </form>
+</div>
+
+
+{{#if products}}
+   
+    <h1 style="font-family:'Oswald',sans-serif; text-align: center; font-size: 3rem; text-decoration:underline">Lista de productos</h1>
+
+    {{#each products.docs}}
+
+        <div style="width: 90%; border: 2px solid rgb(64, 54, 54); display: flex; justify-content: space-between; align-items: center; margin: 20px auto; background-color: #A3E4D7; box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75)">
+           <div style="font-family: 'Exo 2', sans-serif; font-size: 1.5em; margin: 20px 0 5px 30px; padding-left: 10px; letter-spacing:1.3px">
+                <p>Nombre del producto: {{this.title}}</p>
+                <p>Descripción: {{this.description}}</p>
+                <p>Precio: $ {{this.price}}</p>
+                <p>Código del producto: {{this.code}}</p>
+                <p>Categoría del producto: {{this.category}}</p>
+                <p>Stock del producto: {{this.stock}}</p>
+           </div>
+           <div style="margin: 10px 40px 10px 0">
+                <img src="{{this.thumbnails}}" alt="{{this.description}}" style="width: 14em; height: 12em">
+           </div>
+        </div>
+        
+    {{/each}}
+
+{{else}}
+    <h1 style="font-family: 'Oswald', sans-serif; text-align: center; font-size: 3rem; text-decoration:underline">¡No hay productos disponibles para visualizar!</h1>
+{{/if}}
+

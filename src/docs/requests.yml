@@ -1,0 +1,97 @@
+components:
+  parameters:
+    schemas:
+      BodyProducts:
+        type: object
+        required:
+          - title
+          - description
+          - price
+          - code
+          - category
+          - stock
+          - thumbnails
+        properties:
+          title:
+            type: string
+            description: Nombre del producto
+          description:
+            type: string
+            description: Descripción del producto
+          price:
+            type: number
+            description: Precio del producto por unidad
+          code:
+            type: string
+            description: Código del producto (identificación del mismo)
+          category:
+            type: string
+            description: Categoría del producto 
+          stock:
+            type: number
+            description: Cantidad en stock disponible del producto
+          thumbnails:
+            type: string
+            description: Lista de enlaces (URL) a imágenes que identifiquen el producto 
+        example:
+          title: Kit de 4 Telares Rectos de plástico
+          description: Kit de 4 Telares rectos de diferentes tamaños, material de plástico
+          price: 8745 
+          code: A10BCD
+          category: kit
+          stock: 30
+          thumbnails: https://res.cloudinary.com/dsrdpgpzy/image/upload/v1676764511/MULTIMEDIA/img/accesorios/telar-recto_vxhrql.webp
+      BodyQuantityChange:
+        type: object
+        required:
+          - quantity
+        properties:
+          quantity:
+            type: number
+            description: Se indica la cantidad que se quiere agregar al carrito del producto indicado
+            example: 5
+      BodyRegisterUsers:
+        type: object
+        required:
+          - firstName
+          - lastName
+          - email
+          - age
+          - password
+        properties:
+          firstName:
+            type: string
+            description: Nombre del usuario a registrar
+          lastName:
+            type: string
+            description: Apellido del usuario a registrar
+          email:
+            type: string
+            description: Email del usuario a registrar
+          age:
+            type: number
+            description: Edad del usuario a registrar
+          password:
+            type: string
+            description: Contraseña del usuario a registrar
+        example:
+          firstName: John 
+          lastName: Smith
+          email: johnsmith@gmail.com
+          age: 40
+          password: js123456
+      BodyLoginUsers:
+        type: object
+        required:
+          - email
+          - password
+        properties:
+          email:
+            type: string
+            description: Email del usuario a registrar
+          password:
+            type: string
+            description: Contraseña del usuario a registrar
+        example:
+          email: johnsmith@gmail.com
+          password: js123456

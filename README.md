@@ -17,6 +17,9 @@ git clone https://github.com/YasaminAfshar/ProyectoFinalBackend-AfsharinejadYasm
 - ### Para inicializar el proyecto con NODEMON se debe escribir en la terminal el siguiente comando:
 `$ npm run dev`
 
+- ### Para realizar el test unitario (solo del DAO de products) se debe escribir en la terminal el siguiente comando:
+`$ npm run test:uni`
+
 - ### Para poder visualizar la documentación API acceder al siguiente link:
 [DOCUMENTACIÓN API](http://localhost:8080/docs/)
 
@@ -66,7 +69,7 @@ Para hacer funcionar el proyecto, necesitas agregar un archivo .env donde agregu
 | Parameter                 | Type     | Description                                                                     |
 | :-----------------------: | :------: | :-----------------------------------------------------------------------------: |
 | `PORT`                    | `number` | **Required**. Puerto de conexión                                                |
-| `MONGO_ATLAS_URL`         | `string` | **Required**. Url de conexión al mongo atlas tanto para el DEV como PRDO        |
+| `MONGO_ATLAS_URL`         | `string` | **Required**. Url de conexión al mongo atlas tanto para el DEV como PROD        |
 | `MONGO_ATLAS_TEST`        | `string` | **Required**. Url de conexión al mongo atlas para realizar los TESTING          |
 | `CLIENT_ID_GITHUB`        | `string` | **Required**. Se obtiene el ID al generar registro específico en github         |
 | `CLIENT_SECRET_GITHUB`    | `string` | **Required**. Se obtiene el secretKey al generar registro específico en github  |

@@ -31,8 +31,8 @@ describe("Test unitario de Product Dao", () => {
     };
 
     const deleteProd = {
-      title: "Nuevo producto actualizado",
-      description: "Este es el producto numero 1 actualizado",
+      title: "Nuevo producto a eliminar",
+      description: "Este es el producto que se va a eliminar",
       price: 500,
       code: "AAA003",
       category: "producto",
@@ -46,8 +46,11 @@ describe("Test unitario de Product Dao", () => {
         productsDao = new ProductsDaoMongo();
     });
 
-    after(async () => {
+    afterEach(async () => {
       await mongoose.connection.collections["products"].deleteMany({});
+    });
+
+    after(async () => {
       await mongoose.connection.close();
       logger.info("Finalizaron las pruebas unitarias realizadas en el Product Dao!");
     });
@@ -56,7 +59,7 @@ describe("Test unitario de Product Dao", () => {
       const docs = await productsDao.getProducts();
       //expect(Array.isArray(docs)).to.be.equal(true);
       expect(docs).to.be.a("object"); //no se si esta es la forma correcta por como se plantea utilizando paginate
-      expect(docs).to.have.length(0);
+      expect(docs.docs).to.have.length(0);
     }).timeout(5000);
 
     it("Tiene que crear y agregar un producto a la colección", async () => {
@@ -70,16 +73,16 @@ describe("Test unitario de Product Dao", () => {
       expect(newProd.category).to.be.a("string");
       expect(newProd.stock).to.be.a("number");
       expect(newProd.price).to.be.a("number");
-      expect(collection).to.have.length(1);
+      expect(collection.docs).to.have.length(1);
     }).timeout(5000);
 
     it("Tiene que retornar un array con el producto que se agregó", async () => {
       const createdProduct = await productsDao.addProduct(newProd);
       expect(createdProduct).to.exist;
       const docs = await productsDao.getProducts();
-      expect(Array.isArray(docs)).to.be.equal(true);
-      expect(docs).to.have.length(1);
-      const addedProduct = docs[0];
+      expect(docs).to.be.a("object");
+      expect(docs.docs).to.have.length(1);
+      const addedProduct = docs.docs[0];
       expect(addedProduct.title).to.equal(newProd.title);
       expect(addedProduct.description).to.equal(newProd.description);
       expect(addedProduct.price).to.equal(newProd.price);

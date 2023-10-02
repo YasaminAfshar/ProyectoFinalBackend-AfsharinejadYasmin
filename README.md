@@ -80,4 +80,6 @@ Para hacer funcionar el proyecto, necesitas agregar un archivo .env donde agregu
 
 ### Acceder al link donde se realizó el deploy del proyecto en [fl0](https://app.fl0.com/):
 
-Link de la página: [TIENDA ONLINE MUNDO LANA](https://mundo-lana.vercel.app/category/kit)
+Link de la página: [TIENDA ONLINE MUNDO LANA](https://tienda-mundolana-dev.fl0.io/views/login)
+
+A tener en cuenta que solo se realizaron ciertas vistas de acuerdo a lo solicitado en los desafios a lo largo de la cursada

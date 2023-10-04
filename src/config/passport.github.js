@@ -8,7 +8,7 @@ const userDao = new UsersDao();
 const strategyOptions = {
   clientID: config.CLIENT_ID_GITHUB,
   clientSecret: config.CLIENT_SECRET_GITHUB,
-  callbackURL: "http://localhost:8080/api/users/github-profile",
+  callbackURL: "https://tienda-mundolana-dev.fl0.io/api/users/github-profile",
 };
 
 const registerOrLogin = async (accesToken, refreshToken, profile, done) => {

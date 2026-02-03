@@ -78,8 +78,8 @@ Para hacer funcionar el proyecto, necesitas agregar un archivo .env donde agregu
 | `PASSWORD`                | `string` | **Required**. Se obtiene al hacer registro para utilizar nodemailer gmail       |
 
 
-### Acceder al link donde se realizó el deploy del proyecto en [fl0](https://app.fl0.com/):
+### Acceder al link donde se realizó el deploy del proyecto:
 
-Link de la página: [TIENDA ONLINE MUNDO LANA](https://tienda-mundolana-dev.fl0.io/views/login)
+Link de la página: [TIENDA ONLINE MUNDO LANA](https://mundo-lana.vercel.app/)
 
 A tener en cuenta que solo se realizaron ciertas vistas de acuerdo a lo solicitado en los desafios a lo largo de la cursada
